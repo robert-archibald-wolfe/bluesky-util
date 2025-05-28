@@ -1,33 +1,22 @@
 """
-BlueSky followers functionality - v2.0.0
+BlueSky followers functionality - v2.1.0
 """
 
-from typing import List, Optional, Dict, Any
-from atproto import Client
+from typing import List, Dict, Any
 from rich.console import Console
 from rich.table import Table
 
+from .client import BlueSkyClient
 from .utils import format_date, validate_username, truncate_text
 
 
-class BlueSkyFollowers:
+class BlueSkyFollowers(BlueSkyClient):
     """A class for retrieving and analyzing BlueSky follower data."""
     
     def __init__(self, base_url: str = "https://public.api.bsky.app"):
         """Initialize the BlueSky followers client."""
-        self.client = Client(base_url=base_url)
+        super().__init__(base_url)
         self.console = Console()
-    
-    def get_user_profile(self, username: str) -> Optional[Any]:
-        """Get a user's profile information."""
-        try:
-            username = validate_username(username)
-            return self.client.get_profile(username)
-        except ValueError as e:
-            # Username validation error - let it bubble up
-            raise e
-        except Exception:
-            return None
     
     def get_followers_raw(self, username: str, limit: int = 100) -> List[Any]:
         """Get raw follower data for a user."""

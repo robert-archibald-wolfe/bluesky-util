@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-BlueSky Followers CLI - v2.0.0
+BlueSky Followers CLI - v2.1.0
 Command line interface for retrieving BlueSky follower data.
-Now uses library architecture for better reusability.
+Now uses library architecture with separate BlueSkyClient for better reusability.
 """
 
 import argparse

@@ -6,16 +6,40 @@ This example shows how to use the BlueSky utility library
 programmatically in your own applications.
 """
 
-from bluesky_util import BlueSkyFollowers
+from bluesky_util import BlueSkyClient, BlueSkyFollowers
 import json
+
+
+def example_client_usage():
+    """Example of using the general BlueSkyClient for profile operations."""
+    print("=== BlueSkyClient Usage Example (v2.1.0) ===")
+    
+    # Initialize the general client
+    client = BlueSkyClient()
+    
+    # Get user profile information
+    profile = client.get_user_profile("jack.bsky.social")
+    
+    if profile:
+        print(f"\nProfile for @{profile.handle}:")
+        print(f"Display Name: {profile.display_name}")
+        print(f"Description: {profile.description}")
+        print(f"Followers: {getattr(profile, 'followers_count', 'N/A')}")
+        print(f"Following: {getattr(profile, 'follows_count', 'N/A')}")
+        print(f"Created: {getattr(profile, 'created_at', 'N/A')}")
+    else:
+        print("Profile not found or error occurred")
 
 
 def example_basic_usage():
     """Basic example of getting follower data."""
-    print("=== Basic Library Usage Example ===")
+    print("\n=== BlueSkyFollowers Usage Example ===")
     
-    # Initialize the client
+    # Initialize the followers client
     client = BlueSkyFollowers()
+    
+    # Note: BlueSkyFollowers now inherits from BlueSkyClient
+    # so it also has access to get_user_profile method
     
     # Get follower data for a user (using fully qualified username)
     data = client.get_followers_data("jack.bsky.social", limit=5)
@@ -29,8 +53,12 @@ def example_basic_usage():
         print(f"Followers: {target['follower_count']}, Following: {target['following_count']}")
         
         print(f"\nFirst {len(followers)} followers:")
-        for i, follower in enumerate(followers, 1):
-            print(f"{i}. @{follower['handle']} - joined {follower['joined_date']}")
+        for follower in followers:
+            print(f"  - {follower['display_name']} (@{follower['handle']})")
+            if follower['description']:
+                print(f"    {follower['description_truncated']}")
+        
+        print(f"\nMetadata: Retrieved {data['metadata']['total_retrieved']} of max {data['metadata']['limit_requested']}")
     else:
         print(f"Error: {data['error']}")
 
@@ -82,6 +110,7 @@ def example_profile_lookup():
 
 
 if __name__ == "__main__":
+    example_client_usage()
     example_basic_usage()
     example_data_export()
     example_profile_lookup()

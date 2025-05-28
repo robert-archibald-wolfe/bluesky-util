@@ -1,6 +1,6 @@
 [project]
 name = "bluesky-util"
-version = "2.0.0"
+version = "2.1.0"
 description = "BlueSky utility library - get follower/following data, analytics, and more"
 readme = "README.md"
 requires-python = ">=3.13"
@@ -9,9 +9,30 @@ dependencies = [
     "rich>=14.0.0",
 ]
 
+[project.optional-dependencies]
+docs = [
+    "sphinx>=7.0.0",
+    "sphinx-rtd-theme>=2.0.0",
+    "sphinx-autodoc-typehints>=1.25.0",
+    "myst-parser>=2.0.0",
+    "sphinx-copybutton>=0.5.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "mypy>=1.0.0",
+]
+
 [project.scripts]
 bluesky-followers = "cli:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[dependency-groups]
+docs = [
+    "linkify-it-py>=2.0.3",
+]
