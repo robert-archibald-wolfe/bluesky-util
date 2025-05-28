@@ -1,0 +1,10 @@
+[project]
+name = "bluesky-util"
+version = "1.0.0"
+description = "BlueSky followers utility - get follower information and timeline data"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "atproto>=0.0.61",
+    "rich>=14.0.0",
+]
