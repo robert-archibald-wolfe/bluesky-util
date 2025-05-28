@@ -1,10 +1,17 @@
 [project]
 name = "bluesky-util"
-version = "1.0.0"
-description = "BlueSky followers utility - get follower information and timeline data"
+version = "2.0.0"
+description = "BlueSky utility library - get follower/following data, analytics, and more"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "atproto>=0.0.61",
     "rich>=14.0.0",
 ]
+
+[project.scripts]
+bluesky-followers = "cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

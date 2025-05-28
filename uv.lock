@@ -45,8 +45,8 @@ wheels = [
 
 [[package]]
 name = "bluesky-util"
-version = "1.0.0"
-source = { virtual = "." }
+version = "2.0.0"
+source = { editable = "." }
 dependencies = [
     { name = "atproto" },
     { name = "rich" },

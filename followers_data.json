@@ -1,0 +1,119 @@
+{
+  "success": true,
+  "username": "jack.bsky.social",
+  "target_user": {
+    "handle": "jack.bsky.social",
+    "display_name": "jack",
+    "description": "",
+    "joined_date": "2023-09-12",
+    "joined_date_raw": "2023-09-12T22:33:06.369Z",
+    "follower_count": 610,
+    "following_count": 1
+  },
+  "followers": [
+    {
+      "handle": "jonathanfh.bsky.social",
+      "display_name": "",
+      "description": "",
+      "description_truncated": "",
+      "joined_date": "2023-07-23",
+      "joined_date_raw": "2023-07-23T13:04:41.204Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:u52s6oajk6bxyg5bxsoa2nif/bafkreifk7lubfp2addw66pvtdpkvtcmh4owvcqlq4cbyewo2ilzt7qlnau@jpeg",
+      "did": "did:plc:u52s6oajk6bxyg5bxsoa2nif"
+    },
+    {
+      "handle": "djiit.dev",
+      "display_name": "Julien Tanay",
+      "description": "Staff SRE @Doctolib #DeveloperExperience.\nFormer @ConsenSys, @Dior & @canalplus.\nFounder @wikiwarsgg.\nWrites in EN/FR",
+      "description_truncated": "Staff SRE @Doctolib #DeveloperEx...",
+      "joined_date": "2023-09-24",
+      "joined_date_raw": "2023-09-24T06:49:52.593Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:bnhydwmv2r2ngblnzqyjuf6y/bafkreidzcekqq2xp4utl2dmyfu6uwdmmhxquimkdtxzyjsfqv7rnsfbnwe@jpeg",
+      "did": "did:plc:bnhydwmv2r2ngblnzqyjuf6y"
+    },
+    {
+      "handle": "jihes.bsky.social",
+      "display_name": "",
+      "description": "#UX #UI / Brussels / Sustainable Mobility / \uf8ff g33k / streetart fan / spaceinvaders hunter / music lover",
+      "description_truncated": "#UX #UI / Brussels / Sustainable...",
+      "joined_date": "2023-12-15",
+      "joined_date_raw": "2023-12-15T10:47:17.294Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:kzp2lbvxmyhiejs4hy3aezow/bafkreiadiu2fum7i2gwbqlxqupr3bbnivdjesziej45ninmlstq6eyuquy@jpeg",
+      "did": "did:plc:kzp2lbvxmyhiejs4hy3aezow"
+    },
+    {
+      "handle": "notforlogsng.bsky.social",
+      "display_name": "Sir ",
+      "description": "\ud83d\udca4",
+      "description_truncated": "\ud83d\udca4",
+      "joined_date": "2024-01-01",
+      "joined_date_raw": "2024-01-01T15:01:39.625Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:grmyhpxeeqxu4ec3o7ypdpz3/bafkreiah5bzvg2eiibk2mu3qep6i27u5ju5ase73ekbkdndbc2rz7s5kny@jpeg",
+      "did": "did:plc:grmyhpxeeqxu4ec3o7ypdpz3"
+    },
+    {
+      "handle": "svial.bsky.social",
+      "display_name": "St\u00e9phane Vial",
+      "description": "Je suis professeur-chercheur en design @ecolededesignuqam.bsky.social, et fondateur de @mentallys.bsky.social.\nhttps://stephane-vial.net/",
+      "description_truncated": "Je suis professeur-chercheur en ...",
+      "joined_date": "2024-01-14",
+      "joined_date_raw": "2024-01-14T01:45:27.863Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:ffmc3kpct3c45jnq3o2curgy/bafkreigpsdbxzwovidjhevsipy6ghs7f3ckkz5pbjwuhn3jjulv5w2affa@jpeg",
+      "did": "did:plc:ffmc3kpct3c45jnq3o2curgy"
+    },
+    {
+      "handle": "coomya.bsky.social",
+      "display_name": "\u30b3\u30fc\u30df\u30e3\uff08\u8aad\u66f8\u7cfbMix\u5e2b\uff09",
+      "description": "\ud83d\udc31\u30cd\u30b3\u306e\u8aad\u66f8\u7cfbMix\u5e2b\n\ud83d\udc9b\u3042\u3064\u68ee\u30fb\u30c9\u30e9\u30af\u30a8\u30fbMinecraft\u5927\u597d\u304d\n\ud83c\udfa4\u62c5\u5f53(\u53f8\u4f1a\u9032\u884c)\u2192Vtuber\u30b7\u30e7\u30c3\u30ad\u30f3\u30b0\u3001\u6b4c\u3044\u624b\u30b7\u30e7\u30c3\u30ad\u30f3\u30b0\n\ud83d\udcda1600\u518a\u4ee5\u4e0a\u8aad\u4e86\n\ud83d\udc31\u30d5\u30a7\u30a4\u30b9\u30d1\u30c3\u30af(\u706b\u3001\u91d1)\n\ud83c\udfd8\ufe0f\u56f3\u66f8\u9928\u306e\u4e00\u5ba4\u306b\u30b9\u30bf\u30b8\u30aa\u4f5c\u3063\u3066\u4f4f\u3093\u3067\u3044\u308b\n\n\u3054\u4f9d\u983c\u30fb\u5b9f\u7e3e\u2192https://lit.link/coomyacoomya",
+      "description_truncated": "\ud83d\udc31\u30cd\u30b3\u306e\u8aad\u66f8\u7cfbMix\u5e2b\n\ud83d\udc9b\u3042\u3064\u68ee\u30fb\u30c9\u30e9\u30af\u30a8\u30fbMinecraft\u5927...",
+      "joined_date": "2024-03-14",
+      "joined_date_raw": "2024-03-14T08:50:29.586Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:lumqnvcyt7e645k2y532boca/bafkreib2foeiqpno47ydaydr3slh7ac3mgaslx7m3yllq24lr5t2ony7sa@jpeg",
+      "did": "did:plc:lumqnvcyt7e645k2y532boca"
+    },
+    {
+      "handle": "spacefrog2000.bsky.social",
+      "display_name": "",
+      "description": "",
+      "description_truncated": "",
+      "joined_date": "2024-11-03",
+      "joined_date_raw": "2024-11-03T17:24:22.083Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:66exhqrjdaq54rewuoj3nsc3/bafkreifat6tqejmux5lttcyp6pgbswdkmsrkt5zsqn5fd72gybfbhnkaea@jpeg",
+      "did": "did:plc:66exhqrjdaq54rewuoj3nsc3"
+    },
+    {
+      "handle": "avoidaccess.bsky.social",
+      "display_name": "Fname Lname",
+      "description": "Buffaloes trainer!",
+      "description_truncated": "Buffaloes trainer!",
+      "joined_date": "2024-12-04",
+      "joined_date_raw": "2024-12-04T06:49:15.046Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:cbo6ncrzqogqsw5wgz5ih4a7/bafkreid7ydivenuqs2ntp557byxfx5mimkr5a6kbboamunfm7iajinvkma@jpeg",
+      "did": "did:plc:cbo6ncrzqogqsw5wgz5ih4a7"
+    },
+    {
+      "handle": "thegavinbains.bsky.social",
+      "display_name": "",
+      "description": "",
+      "description_truncated": "",
+      "joined_date": "2025-05-13",
+      "joined_date_raw": "2025-05-13T20:58:19.142Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:wo6zmanibr2vtn7hlslstdb4/bafkreifxnqvpgwlkq2uhzyylvpqqirg4tuagbxdzhhnqey6xvl7xw3l2n4@jpeg",
+      "did": "did:plc:wo6zmanibr2vtn7hlslstdb4"
+    },
+    {
+      "handle": "joeybes.bsky.social",
+      "display_name": "",
+      "description": "",
+      "description_truncated": "",
+      "joined_date": "2025-05-13",
+      "joined_date_raw": "2025-05-13T20:58:59.041Z",
+      "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:vdfraeeoxrv32ug55xt2b726/bafkreignsykhccpmy5lpwbz7dxl4wmqxgpbtcezxeuobybecuro5hnxcum@jpeg",
+      "did": "did:plc:vdfraeeoxrv32ug55xt2b726"
+    }
+  ],
+  "metadata": {
+    "total_retrieved": 10,
+    "limit_requested": 10
+  }
+}
