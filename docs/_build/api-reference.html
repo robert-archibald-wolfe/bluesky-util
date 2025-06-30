@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Reference &mdash; BlueSky Followers Utility v2.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=20623aea"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="BlueSky Followers Utility - Examples" href="EXAMPLES.html" />
+    <link rel="prev" title="Getting Started" href="getting-started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BlueSky Followers Utility
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-bluesky_util">Core Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.BlueSkyClient"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyClient.__init__"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyClient.get_user_profile"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient.get_user_profile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.__init__"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.display_followers_table"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.display_followers_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.get_followers_data"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.get_followers_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.get_followers_raw"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.get_followers_raw()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.format_date"><code class="docutils literal notranslate"><span class="pre">format_date()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.validate_username"><code class="docutils literal notranslate"><span class="pre">validate_username()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#blueskyclient-class-new-in-v2-1-0">BlueSkyClient Class (New in v2.1.0)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.BlueSkyClient"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyClient.__init__"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyClient.get_user_profile"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient.get_user_profile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#constructor">Constructor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyClient.__init__"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#profile-methods">Profile Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyClient.get_user_profile"><code class="docutils literal notranslate"><span class="pre">BlueSkyClient.get_user_profile()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#blueskyfollowers-class">BlueSkyFollowers Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.__init__"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.get_followers_raw"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.get_followers_raw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.get_followers_data"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.get_followers_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.display_followers_table"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.display_followers_table()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Constructor</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.__init__"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.__init__()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-retrieval-methods">Data Retrieval Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.get_followers_raw"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.get_followers_raw()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.get_followers_data"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.get_followers_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#display-methods">Display Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.BlueSkyFollowers.display_followers_table"><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers.display_followers_table()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-bluesky_util.utils">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.utils.format_date"><code class="docutils literal notranslate"><span class="pre">format_date()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.utils.validate_username"><code class="docutils literal notranslate"><span class="pre">validate_username()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bluesky_util.utils.truncate_text"><code class="docutils literal notranslate"><span class="pre">truncate_text()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#username-validation">Username Validation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.utils.validate_username"><code class="docutils literal notranslate"><span class="pre">validate_username()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#date-and-text-formatting">Date and Text Formatting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.utils.format_date"><code class="docutils literal notranslate"><span class="pre">format_date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bluesky_util.utils.truncate_text"><code class="docutils literal notranslate"><span class="pre">truncate_text()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-structures">Data Structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#follower-data-response">Follower Data Response</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-response">Error Response</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#exception-handling">Exception Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#valueerror">ValueError</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#network-exceptions">Network Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#type-hints">Type Hints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default-values">Default Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#date-formats">Date Formats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EXAMPLES.html">BlueSky Followers Utility - Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide: v1.0.0 to v2.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to BlueSky Followers Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BlueSky Followers Utility</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api-reference.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<p>This page provides detailed documentation for all classes and methods in the BlueSky Followers Utility v2.1.0.</p>
+<section id="module-bluesky_util">
+<span id="core-classes"></span><h2>Core Classes<a class="headerlink" href="#module-bluesky_util" title="Link to this heading"></a></h2>
+<p>BlueSky Utility Library v2.1.0</p>
+<p>A Python library for interacting with BlueSky social network data.</p>
+<p>Main modules:
+- client: General BlueSky client operations
+- followers: Get and analyze follower data
+- following: Get and analyze following data
+- analytics: Generate insights and statistics
+- utils: Common utilities and helpers</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bluesky_util.</span></span><span class="sig-name descname"><span class="pre">BlueSkyClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A general-purpose client for BlueSky social network operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the BlueSky client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient.get_user_profile">
+<span class="sig-name descname"><span class="pre">get_user_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient.get_user_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient.get_user_profile" title="Link to this definition"></a></dt>
+<dd><p>Get a user’s profile information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Fully qualified BlueSky username (e.g., ‘user.bsky.social’)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>User profile object or None if not found</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If username format is invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bluesky_util.</span></span><span class="sig-name descname"><span class="pre">BlueSkyFollowers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bluesky_util.BlueSkyClient" title="bluesky_util.client.BlueSkyClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlueSkyClient</span></code></a></p>
+<p>A class for retrieving and analyzing BlueSky follower data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the BlueSky followers client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.display_followers_table">
+<span class="sig-name descname"><span class="pre">display_followers_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.display_followers_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.display_followers_table" title="Link to this definition"></a></dt>
+<dd><p>Display followers in a Rich table format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+<li><p><strong>show_description</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.get_followers_data">
+<span class="sig-name descname"><span class="pre">get_followers_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.get_followers_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.get_followers_data" title="Link to this definition"></a></dt>
+<dd><p>Get formatted follower data with metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.get_followers_raw">
+<span class="sig-name descname"><span class="pre">get_followers_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.get_followers_raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.get_followers_raw" title="Link to this definition"></a></dt>
+<dd><p>Get raw follower data for a user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.format_date">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.</span></span><span class="sig-name descname"><span class="pre">format_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#format_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.format_date" title="Link to this definition"></a></dt>
+<dd><p>Format an ISO date string to YYYY-MM-DD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date_string</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – ISO date string or None</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted date string or empty string if invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.validate_username">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.</span></span><span class="sig-name descname"><span class="pre">validate_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#validate_username"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.validate_username" title="Link to this definition"></a></dt>
+<dd><p>Validate and normalize BlueSky username format.</p>
+<p>With BlueSky now supporting custom domains, usernames must be fully qualified.
+This function validates that the username contains a domain and returns it as-is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Raw username input (must include domain)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The username as provided (if valid)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If username doesn’t contain a domain</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="blueskyclient-class-new-in-v2-1-0">
+<h2>BlueSkyClient Class (New in v2.1.0)<a class="headerlink" href="#blueskyclient-class-new-in-v2-1-0" title="Link to this heading"></a></h2>
+<p>The general-purpose BlueSky client for basic operations.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bluesky_util.</span></span><span class="sig-name descname"><span class="pre">BlueSkyClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A general-purpose client for BlueSky social network operations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the BlueSky client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient.get_user_profile">
+<span class="sig-name descname"><span class="pre">get_user_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient.get_user_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient.get_user_profile" title="Link to this definition"></a></dt>
+<dd><p>Get a user’s profile information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Fully qualified BlueSky username (e.g., ‘user.bsky.social’)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>User profile object or None if not found</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If username format is invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="constructor">
+<h3>Constructor<a class="headerlink" href="#constructor" title="Link to this heading"></a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient.__init__">
+<span class="sig-prename descclassname"><span class="pre">BlueSkyClient.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the BlueSky client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="profile-methods">
+<h3>Profile Methods<a class="headerlink" href="#profile-methods" title="Link to this heading"></a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyClient.get_user_profile">
+<span class="sig-prename descclassname"><span class="pre">BlueSkyClient.</span></span><span class="sig-name descname"><span class="pre">get_user_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/client.html#BlueSkyClient.get_user_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyClient.get_user_profile" title="Link to this definition"></a></dt>
+<dd><p>Get a user’s profile information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Fully qualified BlueSky username (e.g., ‘user.bsky.social’)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>User profile object or None if not found</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If username format is invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="blueskyfollowers-class">
+<h2>BlueSkyFollowers Class<a class="headerlink" href="#blueskyfollowers-class" title="Link to this heading"></a></h2>
+<p>Specialized class for follower operations. Inherits from <code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code> (v2.1.0+).</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">bluesky_util.</span></span><span class="sig-name descname"><span class="pre">BlueSkyFollowers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#bluesky_util.BlueSkyClient" title="bluesky_util.client.BlueSkyClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">BlueSkyClient</span></code></a></p>
+<p>A class for retrieving and analyzing BlueSky follower data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the BlueSky followers client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.get_followers_raw">
+<span class="sig-name descname"><span class="pre">get_followers_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.get_followers_raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.get_followers_raw" title="Link to this definition"></a></dt>
+<dd><p>Get raw follower data for a user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.get_followers_data">
+<span class="sig-name descname"><span class="pre">get_followers_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.get_followers_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.get_followers_data" title="Link to this definition"></a></dt>
+<dd><p>Get formatted follower data with metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.display_followers_table">
+<span class="sig-name descname"><span class="pre">display_followers_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.display_followers_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.display_followers_table" title="Link to this definition"></a></dt>
+<dd><p>Display followers in a Rich table format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+<li><p><strong>show_description</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<section id="id1">
+<h3>Constructor<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.__init__">
+<span class="sig-prename descclassname"><span class="pre">BlueSkyFollowers.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_url</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'https://public.api.bsky.app'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.__init__" title="Link to this definition"></a></dt>
+<dd><p>Initialize the BlueSky followers client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>base_url</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="data-retrieval-methods">
+<h3>Data Retrieval Methods<a class="headerlink" href="#data-retrieval-methods" title="Link to this heading"></a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.get_followers_raw">
+<span class="sig-prename descclassname"><span class="pre">BlueSkyFollowers.</span></span><span class="sig-name descname"><span class="pre">get_followers_raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.get_followers_raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.get_followers_raw" title="Link to this definition"></a></dt>
+<dd><p>Get raw follower data for a user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.get_followers_data">
+<span class="sig-prename descclassname"><span class="pre">BlueSkyFollowers.</span></span><span class="sig-name descname"><span class="pre">get_followers_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.get_followers_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.get_followers_data" title="Link to this definition"></a></dt>
+<dd><p>Get formatted follower data with metadata.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">get_user_profile</span></code> is inherited from <code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code> as of v2.1.0.</p>
+</section>
+<section id="display-methods">
+<h3>Display Methods<a class="headerlink" href="#display-methods" title="Link to this heading"></a></h3>
+<dl class="py method">
+<dt class="sig sig-object py" id="bluesky_util.BlueSkyFollowers.display_followers_table">
+<span class="sig-prename descclassname"><span class="pre">BlueSkyFollowers.</span></span><span class="sig-name descname"><span class="pre">display_followers_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/followers.html#BlueSkyFollowers.display_followers_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.BlueSkyFollowers.display_followers_table" title="Link to this definition"></a></dt>
+<dd><p>Display followers in a Rich table format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>)</p></li>
+<li><p><strong>limit</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>)</p></li>
+<li><p><strong>show_description</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="module-bluesky_util.utils">
+<span id="utility-functions"></span><h2>Utility Functions<a class="headerlink" href="#module-bluesky_util.utils" title="Link to this heading"></a></h2>
+<p>Utility functions for BlueSky data processing.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.utils.format_date">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.utils.</span></span><span class="sig-name descname"><span class="pre">format_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#format_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.utils.format_date" title="Link to this definition"></a></dt>
+<dd><p>Format an ISO date string to YYYY-MM-DD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date_string</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – ISO date string or None</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted date string or empty string if invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.utils.validate_username">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.utils.</span></span><span class="sig-name descname"><span class="pre">validate_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#validate_username"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.utils.validate_username" title="Link to this definition"></a></dt>
+<dd><p>Validate and normalize BlueSky username format.</p>
+<p>With BlueSky now supporting custom domains, usernames must be fully qualified.
+This function validates that the username contains a domain and returns it as-is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Raw username input (must include domain)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The username as provided (if valid)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If username doesn’t contain a domain</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.utils.truncate_text">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.utils.</span></span><span class="sig-name descname"><span class="pre">truncate_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#truncate_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.utils.truncate_text" title="Link to this definition"></a></dt>
+<dd><p>Truncate text to specified length with ellipsis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – Text to truncate</p></li>
+<li><p><strong>max_length</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Maximum length before truncation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Truncated text with “…” if needed</p>
+</dd>
+</dl>
+</dd></dl>
+
+<section id="username-validation">
+<h3>Username Validation<a class="headerlink" href="#username-validation" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.utils.validate_username">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.utils.</span></span><span class="sig-name descname"><span class="pre">validate_username</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#validate_username"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.utils.validate_username" title="Link to this definition"></a></dt>
+<dd><p>Validate and normalize BlueSky username format.</p>
+<p>With BlueSky now supporting custom domains, usernames must be fully qualified.
+This function validates that the username contains a domain and returns it as-is.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>username</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Raw username input (must include domain)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The username as provided (if valid)</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.13)"><strong>ValueError</strong></a> – If username doesn’t contain a domain</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="date-and-text-formatting">
+<h3>Date and Text Formatting<a class="headerlink" href="#date-and-text-formatting" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.utils.format_date">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.utils.</span></span><span class="sig-name descname"><span class="pre">format_date</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date_string</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#format_date"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.utils.format_date" title="Link to this definition"></a></dt>
+<dd><p>Format an ISO date string to YYYY-MM-DD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>date_string</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – ISO date string or None</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Formatted date string or empty string if invalid</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bluesky_util.utils.truncate_text">
+<span class="sig-prename descclassname"><span class="pre">bluesky_util.utils.</span></span><span class="sig-name descname"><span class="pre">truncate_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bluesky_util/utils.html#truncate_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#bluesky_util.utils.truncate_text" title="Link to this definition"></a></dt>
+<dd><p>Truncate text to specified length with ellipsis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – Text to truncate</p></li>
+<li><p><strong>max_length</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Maximum length before truncation</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Truncated text with “…” if needed</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+<section id="data-structures">
+<h2>Data Structures<a class="headerlink" href="#data-structures" title="Link to this heading"></a></h2>
+<section id="follower-data-response">
+<h3>Follower Data Response<a class="headerlink" href="#follower-data-response" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_followers_data()</span></code> method returns a structured dictionary with the following format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>          <span class="c1"># Whether the request was successful</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># The requested username</span>
+    <span class="s2">&quot;target_user&quot;</span><span class="p">:</span> <span class="p">{</span>          <span class="c1"># Information about the target user</span>
+        <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;display_name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;joined_date&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;joined_date_raw&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="s2">&quot;follower_count&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s2">&quot;following_count&quot;</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;followers&quot;</span><span class="p">:</span> <span class="p">[</span>            <span class="c1"># List of follower objects</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;handle&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;display_name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;description_truncated&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;joined_date&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;joined_date_raw&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+            <span class="s2">&quot;did&quot;</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>             <span class="c1"># Request metadata</span>
+        <span class="s2">&quot;total_retrieved&quot;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="s2">&quot;limit_requested&quot;</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="error-response">
+<h3>Error Response<a class="headerlink" href="#error-response" title="Link to this heading"></a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">success</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the response includes an error message:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>             <span class="c1"># Description of the error</span>
+    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>          <span class="c1"># The requested username</span>
+    <span class="s2">&quot;followers&quot;</span><span class="p">:</span> <span class="p">[],</span>          <span class="c1"># Empty list</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{}</span>            <span class="c1"># Empty metadata</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="exception-handling">
+<h2>Exception Handling<a class="headerlink" href="#exception-handling" title="Link to this heading"></a></h2>
+<section id="valueerror">
+<h3>ValueError<a class="headerlink" href="#valueerror" title="Link to this heading"></a></h3>
+<p>Raised by utility functions for invalid input:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">validate_username()</span></code> raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> for usernames without domains</p></li>
+<li><p>Other validation functions may raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> for invalid input</p></li>
+</ul>
+</section>
+<section id="network-exceptions">
+<h3>Network Exceptions<a class="headerlink" href="#network-exceptions" title="Link to this heading"></a></h3>
+<p>The library uses the <code class="docutils literal notranslate"><span class="pre">atproto</span></code> library which may raise various network-related exceptions:</p>
+<ul class="simple">
+<li><p>Connection errors</p></li>
+<li><p>Timeout errors</p></li>
+<li><p>API rate limiting errors</p></li>
+</ul>
+<p>These are generally caught and handled gracefully, returning error responses instead of raising exceptions.</p>
+</section>
+</section>
+<section id="type-hints">
+<h2>Type Hints<a class="headerlink" href="#type-hints" title="Link to this heading"></a></h2>
+<p>The library uses Python type hints throughout. Key types:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="c1"># Common return types</span>
+<span class="n">UserProfile</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>                    <span class="c1"># atproto profile object</span>
+<span class="n">FollowerList</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span>                      <span class="c1"># List of atproto follower objects</span>
+<span class="n">FollowerData</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>                 <span class="c1"># Structured response dict</span>
+</pre></div>
+</div>
+</section>
+<section id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Link to this heading"></a></h2>
+<section id="default-values">
+<h3>Default Values<a class="headerlink" href="#default-values" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DEFAULT_BASE_URL</span> <span class="o">=</span> <span class="s2">&quot;https://public.api.bsky.app&quot;</span>
+<span class="n">DEFAULT_LIMIT</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">MAX_DESCRIPTION_LENGTH</span> <span class="o">=</span> <span class="mi">35</span>
+</pre></div>
+</div>
+</section>
+<section id="date-formats">
+<h3>Date Formats<a class="headerlink" href="#date-formats" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">OUTPUT_DATE_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span>              <span class="c1"># Used in formatted output</span>
+<span class="n">INPUT_DATE_FORMATS</span> <span class="o">=</span> <span class="p">[</span>                       <span class="c1"># Accepted input formats</span>
+    <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%S.</span><span class="si">%f</span><span class="s2">Z&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">T%H:%M:%SZ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting-started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="EXAMPLES.html" class="btn btn-neutral float-right" title="BlueSky Followers Utility - Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BlueSky Util Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

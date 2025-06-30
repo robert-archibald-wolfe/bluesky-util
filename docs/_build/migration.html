@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Migration Guide: v1.0.0 to v2.0.0 &mdash; BlueSky Followers Utility v2.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=20623aea"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributing to BlueSky Followers Utility" href="contributing.html" />
+    <link rel="prev" title="BlueSky Followers Utility - Examples" href="EXAMPLES.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BlueSky Followers Utility
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EXAMPLES.html">BlueSky Followers Utility - Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migration Guide: v1.0.0 to v2.0.0</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#breaking-changes">Breaking Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#username-format-requirements">1. Username Format Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#library-vs-script-usage">2. Library vs Script Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#migration-steps">Migration Steps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-update-username-calls">Step 1: Update Username Calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-update-import-statements">Step 2: Update Import Statements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-update-function-calls">Step 3: Update Function Calls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-handle-validation-errors">Step 4: Handle Validation Errors</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-in-v2-0-0">New Features in v2.0.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#library-architecture">1. Library Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-domain-support">2. Custom Domain Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enhanced-cli-interface">3. Enhanced CLI Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improved-error-handling">4. Improved Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-migration-issues">Common Migration Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#issue-1-invalid-username-format">Issue 1: “Invalid username format”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#issue-2-import-errors">Issue 2: Import errors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#issue-3-cli-argument-format">Issue 3: CLI argument format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-your-migration">Testing Your Migration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#support">Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rollback-plan">Rollback Plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-notes">Performance Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to BlueSky Followers Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BlueSky Followers Utility</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Migration Guide: v1.0.0 to v2.0.0</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/migration.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="migration-guide-v1-0-0-to-v2-0-0">
+<h1>Migration Guide: v1.0.0 to v2.0.0<a class="headerlink" href="#migration-guide-v1-0-0-to-v2-0-0" title="Link to this heading"></a></h1>
+<p>This guide helps you migrate from BlueSky Followers Utility v1.0.0 to v2.0.0.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Version 2.0.0 introduces significant changes that improve the library’s flexibility and usability. The most important change is the removal of automatic <code class="docutils literal notranslate"><span class="pre">.bsky.social</span></code> suffix addition to support BlueSky’s custom domain feature.</p>
+</section>
+<section id="breaking-changes">
+<h2>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Link to this heading"></a></h2>
+<section id="username-format-requirements">
+<h3>1. Username Format Requirements<a class="headerlink" href="#username-format-requirements" title="Link to this heading"></a></h3>
+<p><strong>v1.0.0 (OLD):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Automatically added .bsky.social</span>
+<span class="n">get_followers</span><span class="p">(</span><span class="s1">&#39;jack&#39;</span><span class="p">)</span>  <span class="c1"># Became jack.bsky.social</span>
+</pre></div>
+</div>
+<p><strong>v2.0.0 (NEW):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Must provide fully qualified username</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+<span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">)</span>  <span class="c1"># Required</span>
+<span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="s1">&#39;custom.domain.com&#39;</span><span class="p">)</span>  <span class="c1"># Now supported!</span>
+</pre></div>
+</div>
+</section>
+<section id="library-vs-script-usage">
+<h3>2. Library vs Script Usage<a class="headerlink" href="#library-vs-script-usage" title="Link to this heading"></a></h3>
+<p><strong>v1.0.0 (OLD):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Direct script execution</span>
+python<span class="w"> </span>bluesky_followers.py<span class="w"> </span>jack<span class="w"> </span><span class="m">50</span>
+</pre></div>
+</div>
+<p><strong>v2.0.0 (NEW):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CLI interface</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">50</span>
+
+<span class="c1"># OR library usage</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from bluesky_util import BlueSkyFollowers; ...&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="migration-steps">
+<h2>Migration Steps<a class="headerlink" href="#migration-steps" title="Link to this heading"></a></h2>
+<section id="step-1-update-username-calls">
+<h3>Step 1: Update Username Calls<a class="headerlink" href="#step-1-update-username-calls" title="Link to this heading"></a></h3>
+<p>Search your code for any hardcoded usernames and add the appropriate domain:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OLD</span>
+<span class="n">usernames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jack&#39;</span><span class="p">,</span> <span class="s1">&#39;alice&#39;</span><span class="p">,</span> <span class="s1">&#39;bob&#39;</span><span class="p">]</span>
+
+<span class="c1"># NEW</span>
+<span class="n">usernames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="s1">&#39;alice.bsky.social&#39;</span><span class="p">,</span> <span class="s1">&#39;bob.custom-domain.com&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-update-import-statements">
+<h3>Step 2: Update Import Statements<a class="headerlink" href="#step-2-update-import-statements" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OLD - Script import not supported</span>
+
+<span class="c1"># NEW - Library import</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span><span class="p">,</span> <span class="n">validate_username</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-update-function-calls">
+<h3>Step 3: Update Function Calls<a class="headerlink" href="#step-3-update-function-calls" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># OLD - Direct function calls not available</span>
+
+<span class="c1"># NEW - Class-based approach</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-handle-validation-errors">
+<h3>Step 4: Handle Validation Errors<a class="headerlink" href="#step-4-handle-validation-errors" title="Link to this heading"></a></h3>
+<p>The new version raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> for invalid usernames:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate_username</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">validate_username</span><span class="p">(</span><span class="s1">&#39;jack&#39;</span><span class="p">)</span>  <span class="c1"># Will raise ValueError</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid username: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># Fix by adding domain</span>
+    <span class="n">validate_username</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">)</span>  <span class="c1"># OK</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="new-features-in-v2-0-0">
+<h2>New Features in v2.0.0<a class="headerlink" href="#new-features-in-v2-0-0" title="Link to this heading"></a></h2>
+<section id="library-architecture">
+<h3>1. Library Architecture<a class="headerlink" href="#library-architecture" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Import as <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">bluesky_util</span> <span class="pre">import</span> <span class="pre">BlueSkyFollowers</span></code></p></li>
+<li><p>Reusable class-based interface</p></li>
+<li><p>Proper error handling with exceptions</p></li>
+</ul>
+</section>
+<section id="custom-domain-support">
+<h3>2. Custom Domain Support<a class="headerlink" href="#custom-domain-support" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Support for any BlueSky domain</p></li>
+<li><p>No automatic domain suffix addition</p></li>
+<li><p>Full username validation</p></li>
+</ul>
+</section>
+<section id="enhanced-cli-interface">
+<h3>3. Enhanced CLI Interface<a class="headerlink" href="#enhanced-cli-interface" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--limit</span></code> flag for controlling output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-description</span></code> flag to hide descriptions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--version</span></code> flag to show version info</p></li>
+<li><p>Better error messages</p></li>
+</ul>
+</section>
+<section id="improved-error-handling">
+<h3>4. Improved Error Handling<a class="headerlink" href="#improved-error-handling" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Specific error types (<code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, <code class="docutils literal notranslate"><span class="pre">ConnectionError</span></code>, etc.)</p></li>
+<li><p>Detailed error messages</p></li>
+<li><p>Graceful fallback behavior</p></li>
+</ul>
+</section>
+</section>
+<section id="common-migration-issues">
+<h2>Common Migration Issues<a class="headerlink" href="#common-migration-issues" title="Link to this heading"></a></h2>
+<section id="issue-1-invalid-username-format">
+<h3>Issue 1: “Invalid username format”<a class="headerlink" href="#issue-1-invalid-username-format" title="Link to this heading"></a></h3>
+<p><strong>Cause:</strong> Passing username without domain (e.g., <code class="docutils literal notranslate"><span class="pre">'jack'</span></code> instead of <code class="docutils literal notranslate"><span class="pre">'jack.bsky.social'</span></code>)</p>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wrong</span>
+<span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="s1">&#39;jack&#39;</span><span class="p">)</span>
+
+<span class="c1"># Correct</span>
+<span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="issue-2-import-errors">
+<h3>Issue 2: Import errors<a class="headerlink" href="#issue-2-import-errors" title="Link to this heading"></a></h3>
+<p><strong>Cause:</strong> Trying to import from old script location</p>
+<p><strong>Solution:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wrong</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_followers</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_followers</span>
+
+<span class="c1"># Correct</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+</pre></div>
+</div>
+</section>
+<section id="issue-3-cli-argument-format">
+<h3>Issue 3: CLI argument format<a class="headerlink" href="#issue-3-cli-argument-format" title="Link to this heading"></a></h3>
+<p><strong>Cause:</strong> Using old CLI argument format</p>
+<p><strong>Solution:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wrong</span>
+python<span class="w"> </span>bluesky_followers.py<span class="w"> </span>jack<span class="w"> </span><span class="m">50</span>
+
+<span class="c1"># Correct</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">50</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing-your-migration">
+<h2>Testing Your Migration<a class="headerlink" href="#testing-your-migration" title="Link to this heading"></a></h2>
+<p>Use this checklist to verify your migration:</p>
+<ol class="arabic">
+<li><p><strong>Username Validation:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">validate_username</span>
+
+<span class="c1"># Should work</span>
+<span class="n">validate_username</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">)</span>
+<span class="n">validate_username</span><span class="p">(</span><span class="s1">&#39;custom.domain.com&#39;</span><span class="p">)</span>
+
+<span class="c1"># Should raise ValueError</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">validate_username</span><span class="p">(</span><span class="s1">&#39;jack&#39;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Should have raised ValueError&quot;</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="k">pass</span>  <span class="c1"># Expected</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Library Import:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">bf</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>CLI Interface:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>cli.py<span class="w"> </span>--version<span class="w">  </span><span class="c1"># Should show v2.0.0</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>invalid-username<span class="w">  </span><span class="c1"># Should show error</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span><span class="w">  </span><span class="c1"># Should work</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="support">
+<h2>Support<a class="headerlink" href="#support" title="Link to this heading"></a></h2>
+<p>If you encounter issues during migration:</p>
+<ol class="arabic simple">
+<li><p>Check the <a class="reference internal" href="api-reference.html"><span class="std std-doc">API Reference</span></a> for detailed function signatures</p></li>
+<li><p>Review <a class="reference internal" href="EXAMPLES.html"><span class="std std-doc">Examples</span></a> for usage patterns</p></li>
+<li><p>Check the <a class="reference internal" href="changelog.html"><span class="std std-doc">Changelog</span></a> for all changes</p></li>
+<li><p>Open an issue on GitHub with your specific migration problem</p></li>
+</ol>
+</section>
+<section id="rollback-plan">
+<h2>Rollback Plan<a class="headerlink" href="#rollback-plan" title="Link to this heading"></a></h2>
+<p>If you need to rollback to v1.0.0:</p>
+<ol class="arabic simple">
+<li><p>The original v1.0.0 script is preserved as <code class="docutils literal notranslate"><span class="pre">bluesky_followers_v1.0.0.py</span></code></p></li>
+<li><p>Use: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">bluesky_followers_v1.0.0.py</span> <span class="pre">jack</span> <span class="pre">50</span></code></p></li>
+<li><p>Note: v1.0.0 won’t support custom domains</p></li>
+</ol>
+</section>
+<section id="performance-notes">
+<h2>Performance Notes<a class="headerlink" href="#performance-notes" title="Link to this heading"></a></h2>
+<p>v2.0.0 includes several performance improvements:</p>
+<ul class="simple">
+<li><p>Better connection handling and reuse</p></li>
+<li><p>Optimized data structures</p></li>
+<li><p>Reduced memory usage for large follower lists</p></li>
+<li><p>Improved error recovery</p></li>
+</ul>
+<p>Expect similar or better performance compared to v1.0.0.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="EXAMPLES.html" class="btn btn-neutral float-left" title="BlueSky Followers Utility - Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing to BlueSky Followers Utility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BlueSky Util Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueSky Followers Utility - Examples &mdash; BlueSky Followers Utility v2.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=20623aea"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Migration Guide: v1.0.0 to v2.0.0" href="migration.html" />
+    <link rel="prev" title="API Reference" href="api-reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BlueSky Followers Utility
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BlueSky Followers Utility - Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-library-usage">Basic Library Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simple-follower-retrieval">Simple Follower Retrieval</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display-formatted-table">Display Formatted Table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profile-information">Profile Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cli-usage">CLI Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-commands">Basic Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help-and-version">Help and Version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-domains">Custom Domains</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-analysis-examples">Data Analysis Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#follower-growth-analysis">Follower Growth Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-to-json">Export to JSON</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compare-multiple-users">Compare Multiple Users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling">Error Handling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#robust-error-handling">Robust Error Handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#batch-processing-with-error-handling">Batch Processing with Error Handling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#integration-examples">Integration Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#django-integration">Django Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flask-web-app">Flask Web App</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advanced-usage">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#custom-data-processing-pipeline">Custom Data Processing Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#monitoring-and-alerting">Monitoring and Alerting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide: v1.0.0 to v2.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to BlueSky Followers Utility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BlueSky Followers Utility</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BlueSky Followers Utility - Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/EXAMPLES.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="bluesky-followers-utility-examples">
+<h1>BlueSky Followers Utility - Examples<a class="headerlink" href="#bluesky-followers-utility-examples" title="Link to this heading"></a></h1>
+<p>This document provides comprehensive examples for using the BlueSky Followers Utility v2.0.0.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#basic-library-usage">Basic Library Usage</a></p></li>
+<li><p><a class="reference internal" href="#cli-usage">CLI Usage</a></p></li>
+<li><p><a class="reference internal" href="#data-analysis-examples">Data Analysis Examples</a></p></li>
+<li><p><a class="reference internal" href="#error-handling">Error Handling</a></p></li>
+<li><p><a class="reference internal" href="#integration-examples">Integration Examples</a></p></li>
+<li><p><a class="reference internal" href="#advanced-usage">Advanced Usage</a></p></li>
+</ol>
+</section>
+<section id="basic-library-usage">
+<h2>Basic Library Usage<a class="headerlink" href="#basic-library-usage" title="Link to this heading"></a></h2>
+<section id="simple-follower-retrieval">
+<h3>Simple Follower Retrieval<a class="headerlink" href="#simple-follower-retrieval" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+
+<span class="c1"># Initialize the client</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+
+<span class="c1"># Get followers for a user</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> followers for @</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Show first 5 followers</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">follower</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">],</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">. @</span><span class="si">{</span><span class="n">follower</span><span class="p">[</span><span class="s1">&#39;handle&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">follower</span><span class="p">[</span><span class="s1">&#39;display_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="display-formatted-table">
+<h3>Display Formatted Table<a class="headerlink" href="#display-formatted-table" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+
+<span class="c1"># Display followers in a beautiful table</span>
+<span class="n">success</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">display_followers_table</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Successfully displayed followers&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✗ Failed to display followers&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="profile-information">
+<h3>Profile Information<a class="headerlink" href="#profile-information" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+
+<span class="c1"># Get user profile</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_user_profile</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User: </span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">display_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Handle: @</span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">handle</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Description: </span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">description</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Followers: </span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">followers_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Following: </span><span class="si">{</span><span class="n">profile</span><span class="o">.</span><span class="n">follows_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User not found&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cli-usage">
+<h2>CLI Usage<a class="headerlink" href="#cli-usage" title="Link to this heading"></a></h2>
+<section id="basic-commands">
+<h3>Basic Commands<a class="headerlink" href="#basic-commands" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get followers (default limit: 100)</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social
+
+<span class="c1"># Specify custom limit</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">50</span>
+
+<span class="c1"># Hide description column</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">25</span><span class="w"> </span>--no-description
+
+<span class="c1"># Using uv</span>
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">30</span>
+</pre></div>
+</div>
+</section>
+<section id="help-and-version">
+<h3>Help and Version<a class="headerlink" href="#help-and-version" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get help</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>--help
+
+<span class="c1"># Check version</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>--version
+</pre></div>
+</div>
+</section>
+<section id="custom-domains">
+<h3>Custom Domains<a class="headerlink" href="#custom-domains" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Works with any custom domain</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>user.example.com<span class="w"> </span>--limit<span class="w"> </span><span class="m">50</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>someone.custom-domain.org<span class="w"> </span>--limit<span class="w"> </span><span class="m">100</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="data-analysis-examples">
+<h2>Data Analysis Examples<a class="headerlink" href="#data-analysis-examples" title="Link to this heading"></a></h2>
+<section id="follower-growth-analysis">
+<h3>Follower Growth Analysis<a class="headerlink" href="#follower-growth-analysis" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_follower_growth</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Analyze when followers joined BlueSky&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    
+    <span class="c1"># Group by year/month</span>
+    <span class="n">growth_by_month</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">follower</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">]:</span>
+        <span class="n">joined_date</span> <span class="o">=</span> <span class="n">follower</span><span class="p">[</span><span class="s1">&#39;joined_date_raw&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">joined_date</span><span class="p">:</span>
+            <span class="c1"># Extract year-month from ISO date</span>
+            <span class="n">month</span> <span class="o">=</span> <span class="n">joined_date</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span>  <span class="c1"># YYYY-MM</span>
+            <span class="n">growth_by_month</span><span class="p">[</span><span class="n">month</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="c1"># Sort by date</span>
+    <span class="n">sorted_growth</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">growth_by_month</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Follower Growth Analysis for @</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+    
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">month</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">sorted_growth</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">count</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">count</span><span class="si">:</span><span class="s2">3d</span><span class="si">}</span><span class="s2"> new followers (total: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">sorted_growth</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">growth</span> <span class="o">=</span> <span class="n">analyze_follower_growth</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="export-to-json">
+<h3>Export to JSON<a class="headerlink" href="#export-to-json" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">export_followers_json</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export follower data to JSON file&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    
+    <span class="c1"># Add export metadata</span>
+    <span class="n">export_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;export_info&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;exported_at&quot;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(),</span>
+            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+            <span class="s2">&quot;total_exported&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">]),</span>
+            <span class="s2">&quot;limit_requested&quot;</span><span class="p">:</span> <span class="n">limit</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;target_user&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">],</span>
+        <span class="s2">&quot;followers&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># Generate filename if not provided</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="p">:</span>
+        <span class="n">safe_username</span> <span class="o">=</span> <span class="n">username</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;followers_</span><span class="si">{</span><span class="n">safe_username</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">_%H%M%S&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.json&quot;</span>
+    
+    <span class="c1"># Write to file</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">export_data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Exported </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> followers to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">export_followers_json</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="compare-multiple-users">
+<h3>Compare Multiple Users<a class="headerlink" href="#compare-multiple-users" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">compare_users</span><span class="p">(</span><span class="n">usernames</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compare follower counts and growth for multiple users&quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="k">for</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">usernames</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyzing @</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+        
+        <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">]</span>
+            <span class="n">followers</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">]</span>
+            
+            <span class="c1"># Calculate average join time (days since BlueSky launch)</span>
+            <span class="n">join_dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;joined_date_raw&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">followers</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;joined_date_raw&#39;</span><span class="p">]]</span>
+            
+            <span class="n">results</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;display_name&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">[</span><span class="s1">&#39;display_name&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;total_followers&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">[</span><span class="s1">&#39;follower_count&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;total_following&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">[</span><span class="s1">&#39;following_count&#39;</span><span class="p">],</span>
+                <span class="s1">&#39;analyzed_followers&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">followers</span><span class="p">),</span>
+                <span class="s1">&#39;join_dates_available&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">join_dates</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]}</span>
+        
+        <span class="c1"># Be respectful to the API</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Display comparison</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">User Comparison&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;Username&#39;</span><span class="si">:</span><span class="s2">&lt;25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Display Name&#39;</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Followers&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;Following&#39;</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">80</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">username</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">info</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">username</span><span class="si">:</span><span class="s2">&lt;25</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;display_name&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;20</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;total_followers&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;total_following&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">username</span><span class="si">:</span><span class="s2">&lt;25</span><span class="si">}</span><span class="s2"> ERROR: </span><span class="si">{</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="s1">&#39;pfrazee.com&#39;</span><span class="p">,</span> <span class="s1">&#39;jay.bsky.social&#39;</span><span class="p">]</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">compare_users</span><span class="p">(</span><span class="n">users</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<section id="robust-error-handling">
+<h3>Robust Error Handling<a class="headerlink" href="#robust-error-handling" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_get_followers</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Safely get followers with comprehensive error handling&quot;&quot;&quot;</span>
+    <span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Validate username format first</span>
+        <span class="k">if</span> <span class="s1">&#39;.&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">username</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;Username must include domain (e.g., user.bsky.social)&#39;</span>
+            <span class="p">}</span>
+        
+        <span class="c1"># Get followers data</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✓ Successfully retrieved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> followers&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">data</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ API Error: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">data</span>
+            
+    <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Username validation error</span>
+        <span class="n">error_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Username validation error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ </span><span class="si">{</span><span class="n">error_msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">error_msg</span><span class="p">}</span>
+        
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Unexpected error</span>
+        <span class="n">error_msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Unexpected error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✗ </span><span class="si">{</span><span class="n">error_msg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">error_msg</span><span class="p">}</span>
+
+<span class="c1"># Example usage with error handling</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">safe_get_followers</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+    <span class="n">followers</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">]</span>
+    <span class="c1"># Process followers...</span>
+</pre></div>
+</div>
+</section>
+<section id="batch-processing-with-error-handling">
+<h3>Batch Processing with Error Handling<a class="headerlink" href="#batch-processing-with-error-handling" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">batch_process_users</span><span class="p">(</span><span class="n">usernames</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Process multiple users with error handling and rate limiting&quot;&quot;&quot;</span>
+    <span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">username</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">usernames</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">usernames</span><span class="p">)</span><span class="si">}</span><span class="s2">: @</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;success&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;follower_count&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">]),</span>
+                    <span class="s1">&#39;target_info&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">]</span>
+                <span class="p">}</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ✓ </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> followers retrieved&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;api_error&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span>
+                <span class="p">}</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ✗ API Error: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">results</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="s1">&#39;exception&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  ✗ Exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Rate limiting</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">usernames</span><span class="p">):</span>  <span class="c1"># Don&#39;t sleep after the last user</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">results</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">usernames</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;invalid-user&#39;</span><span class="p">,</span>  <span class="c1"># This will cause an error</span>
+    <span class="s1">&#39;pfrazee.com&#39;</span>
+<span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">batch_process_users</span><span class="p">(</span><span class="n">usernames</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Summary</span>
+<span class="n">successful</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Batch complete: </span><span class="si">{</span><span class="n">successful</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">usernames</span><span class="p">)</span><span class="si">}</span><span class="s2"> successful&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="integration-examples">
+<h2>Integration Examples<a class="headerlink" href="#integration-examples" title="Link to this heading"></a></h2>
+<section id="django-integration">
+<h3>Django Integration<a class="headerlink" href="#django-integration" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># models.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BlueSkyUser</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">display_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">follower_count</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">following_count</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">last_updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_from_bluesky</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update user data from BlueSky API&quot;&quot;&quot;</span>
+        <span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_user_profile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">profile</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">display_name</span> <span class="o">=</span> <span class="n">profile</span><span class="o">.</span><span class="n">display_name</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">description</span> <span class="o">=</span> <span class="n">profile</span><span class="o">.</span><span class="n">description</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">follower_count</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="s1">&#39;followers_count&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">following_count</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="s1">&#39;follows_count&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FollowerSnapshot</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">BlueSkyUser</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">snapshot_date</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">follower_data</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">JSONField</span><span class="p">()</span>
+    <span class="n">total_followers</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">()</span>
+    
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">create_snapshot</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a follower snapshot&quot;&quot;&quot;</span>
+        <span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+            <span class="n">user</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">BlueSkyUser</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span>
+                <span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span>
+                <span class="n">defaults</span><span class="o">=</span><span class="p">{</span>
+                    <span class="s1">&#39;display_name&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">][</span><span class="s1">&#39;display_name&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">][</span><span class="s1">&#39;description&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;follower_count&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">][</span><span class="s1">&#39;follower_count&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;following_count&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">][</span><span class="s1">&#39;following_count&#39;</span><span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+            
+            <span class="n">snapshot</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span>
+                <span class="n">follower_data</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">],</span>
+                <span class="n">total_followers</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">])</span>
+            <span class="p">)</span>
+            
+            <span class="k">return</span> <span class="n">snapshot</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</section>
+<section id="flask-web-app">
+<h3>Flask Web App<a class="headerlink" href="#flask-web-app" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># app.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/api/followers/&lt;username&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_followers_api</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;limit&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">jsonify</span><span class="p">({</span>
+            <span class="s1">&#39;success&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="p">}),</span> <span class="mi">500</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/user/&lt;username&gt;&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">user_page</span><span class="p">(</span><span class="n">username</span><span class="p">):</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;limit&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;user.html&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;error.html&#39;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">])</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-usage">
+<h2>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Link to this heading"></a></h2>
+<section id="custom-data-processing-pipeline">
+<h3>Custom Data Processing Pipeline<a class="headerlink" href="#custom-data-processing-pipeline" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BlueSkyAnalyzer</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_follower_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get followers as a pandas DataFrame&quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to get data: </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;error&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
+        <span class="c1"># Convert to DataFrame</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;followers&#39;</span><span class="p">])</span>
+        
+        <span class="c1"># Add additional columns</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;joined_date_parsed&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;joined_date_raw&#39;</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;description_length&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;has_display_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;display_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;display_name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">]</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">analyze_follower_patterns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Comprehensive follower analysis&quot;&quot;&quot;</span>
+        <span class="n">df</span><span class="p">,</span> <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_follower_dataframe</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="p">)</span>
+        
+        <span class="n">analysis</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;target_user&#39;</span><span class="p">:</span> <span class="n">target</span><span class="p">,</span>
+            <span class="s1">&#39;total_analyzed&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span>
+            <span class="s1">&#39;join_date_stats&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;earliest&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;joined_date_parsed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+                <span class="s1">&#39;latest&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;joined_date_parsed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+                <span class="s1">&#39;median&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;joined_date_parsed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;profile_completeness&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;with_display_name&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;has_display_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                <span class="s1">&#39;with_description&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;description_length&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span>
+                <span class="s1">&#39;avg_description_length&#39;</span><span class="p">:</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;description_length&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="p">},</span>
+            <span class="s1">&#39;monthly_growth&#39;</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;joined_date_parsed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+        <span class="p">}</span>
+        
+        <span class="k">return</span> <span class="n">analysis</span><span class="p">,</span> <span class="n">df</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot_growth_chart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a growth visualization&quot;&quot;&quot;</span>
+        <span class="n">analysis</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">analyze_follower_patterns</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">limit</span><span class="p">)</span>
+        
+        <span class="c1"># Prepare monthly data</span>
+        <span class="n">monthly_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;joined_date_parsed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+        <span class="n">monthly_data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">monthly_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">()</span>
+        
+        <span class="c1"># Create plot</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">monthly_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">monthly_data</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Monthly Follower Growth - @</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;New Followers&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">save_path</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">analyzer</span> <span class="o">=</span> <span class="n">BlueSkyAnalyzer</span><span class="p">()</span>
+
+<span class="c1"># Get detailed analysis</span>
+<span class="n">analysis</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="n">analyzer</span><span class="o">.</span><span class="n">analyze_follower_patterns</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analysis for @</span><span class="si">{</span><span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;target_user&#39;</span><span class="p">][</span><span class="s1">&#39;handle&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total followers analyzed: </span><span class="si">{</span><span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;total_analyzed&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Followers with display names: </span><span class="si">{</span><span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;profile_completeness&#39;</span><span class="p">][</span><span class="s1">&#39;with_display_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average description length: </span><span class="si">{</span><span class="n">analysis</span><span class="p">[</span><span class="s1">&#39;profile_completeness&#39;</span><span class="p">][</span><span class="s1">&#39;avg_description_length&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> chars&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create growth chart</span>
+<span class="n">analyzer</span><span class="o">.</span><span class="n">plot_growth_chart</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s1">&#39;growth_chart.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="monitoring-and-alerting">
+<h3>Monitoring and Alerting<a class="headerlink" href="#monitoring-and-alerting" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FollowerMonitor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="o">=</span><span class="s1">&#39;monitor_config.json&#39;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_file</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Load monitoring configuration&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">config_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;users_to_monitor&#39;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s1">&#39;check_interval&#39;</span><span class="p">:</span> <span class="mi">3600</span><span class="p">,</span>  <span class="c1"># 1 hour</span>
+                <span class="s1">&#39;alert_threshold&#39;</span><span class="p">:</span> <span class="mi">10</span>    <span class="c1"># Alert if +/- 10 followers</span>
+            <span class="p">}</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check a single user for changes&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">profile</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bf</span><span class="o">.</span><span class="n">get_user_profile</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">profile</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;User not found&#39;</span><span class="p">}</span>
+            
+            <span class="n">current_count</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="s1">&#39;followers_count&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+            
+            <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span>
+                <span class="s1">&#39;timestamp&#39;</span><span class="p">:</span> <span class="n">timestamp</span><span class="p">,</span>
+                <span class="s1">&#39;follower_count&#39;</span><span class="p">:</span> <span class="n">current_count</span><span class="p">,</span>
+                <span class="s1">&#39;display_name&#39;</span><span class="p">:</span> <span class="n">profile</span><span class="o">.</span><span class="n">display_name</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;change&#39;</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">}</span>
+            
+            <span class="c1"># Check for changes</span>
+            <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">:</span>
+                <span class="n">last_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">username</span><span class="p">][</span><span class="s1">&#39;follower_count&#39;</span><span class="p">]</span>
+                <span class="n">result</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_count</span> <span class="o">-</span> <span class="n">last_count</span>
+            
+            <span class="c1"># Update history</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">username</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+            
+            <span class="k">return</span> <span class="n">result</span>
+            
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">monitor_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Monitor all configured users&quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">username</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;users_to_monitor&#39;</span><span class="p">]:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Checking @</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_user</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            
+            <span class="c1"># Check for significant changes</span>
+            <span class="k">if</span> <span class="s1">&#39;change&#39;</span> <span class="ow">in</span> <span class="n">result</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;alert_threshold&#39;</span><span class="p">]:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">send_alert</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Rate limiting</span>
+        
+        <span class="k">return</span> <span class="n">results</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_alert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send alert for significant changes&quot;&quot;&quot;</span>
+        <span class="n">change</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">]</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;follower_count&#39;</span><span class="p">]</span>
+        
+        <span class="k">if</span> <span class="n">change</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;🔥 @</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> gained </span><span class="si">{</span><span class="n">change</span><span class="si">}</span><span class="s2"> followers (now </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;📉 @</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> lost </span><span class="si">{</span><span class="nb">abs</span><span class="p">(</span><span class="n">change</span><span class="p">)</span><span class="si">}</span><span class="s2"> followers (now </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">)&quot;</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ALERT: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Here you could integrate with Slack, Discord, email, etc.</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">run_continuous</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Run continuous monitoring&quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starting follower monitor for </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;users_to_monitor&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2"> users&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Check interval: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;check_interval&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+        
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">monitor_all</span><span class="p">()</span>
+                
+                <span class="c1"># Log results</span>
+                <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s2">] Monitoring cycle complete&quot;</span><span class="p">)</span>
+                
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;check_interval&#39;</span><span class="p">])</span>
+                
+            <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Monitoring stopped by user&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in monitoring cycle: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>  <span class="c1"># Wait a minute before retrying</span>
+
+<span class="c1"># Example usage</span>
+<span class="n">monitor</span> <span class="o">=</span> <span class="n">FollowerMonitor</span><span class="p">()</span>
+
+<span class="c1"># Add users to monitor</span>
+<span class="n">monitor</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;users_to_monitor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pfrazee.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;jay.bsky.social&#39;</span>
+<span class="p">]</span>
+
+<span class="c1"># Run a single check</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">monitor</span><span class="o">.</span><span class="n">monitor_all</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;@</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;follower_count&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> followers (</span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;change&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">+d</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These examples demonstrate the versatility and power of the BlueSky Followers Utility v2.0.0. The library architecture makes it easy to integrate into larger applications and build sophisticated analysis tools.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api-reference.html" class="btn btn-neutral float-left" title="API Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="migration.html" class="btn btn-neutral float-right" title="Migration Guide: v1.0.0 to v2.0.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BlueSky Util Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

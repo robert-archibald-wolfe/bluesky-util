@@ -1,0 +1,422 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog &mdash; BlueSky Followers Utility v2.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=20623aea"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Contributing to BlueSky Followers Utility" href="contributing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BlueSky Followers Utility
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EXAMPLES.html">BlueSky Followers Utility - Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide: v1.0.0 to v2.0.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing to BlueSky Followers Utility</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">[2.1.0] - 2025-05-28</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-details">Technical Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#migration-from-v2-0-0">Migration from v2.0.0</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">[2.0.0] - 2024-12-19</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#breaking-changes">⚠️ BREAKING CHANGES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removed">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Technical Details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#migration-notes">Migration Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">[1.0.0] - 2024-12-18</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-implementation">Technical Implementation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#known-limitations">Known Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#development-notes">Development Notes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#versioning-strategy">Versioning Strategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#release-channels">Release Channels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contribution-guidelines">Contribution Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#future-roadmap">Future Roadmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#support-policy">Support Policy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BlueSky Followers Utility</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Changelog</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/changelog.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h1>
+<p>All notable changes to the BlueSky Followers Utility will be documented in this file.</p>
+<p>The format is based on <a class="reference external" href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
+and this project adheres to <a class="reference external" href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<section id="id1">
+<h2>[2.1.0] - 2025-05-28<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="added">
+<h3>Added<a class="headerlink" href="#added" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>New <code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code> class:</strong> General-purpose client for BlueSky operations</p></li>
+<li><p><strong>Modular Architecture:</strong> Separated general BlueSky functionality from followers-specific functionality</p></li>
+<li><p><strong>Enhanced Examples:</strong> Updated library usage examples to showcase new architecture</p></li>
+</ul>
+</section>
+<section id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Code Organization:</strong> Moved <code class="docutils literal notranslate"><span class="pre">get_user_profile</span></code> method from <code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers</span></code> to the new <code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code> class</p></li>
+<li><p><strong>Inheritance:</strong> <code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers</span></code> now inherits from <code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code> for better code reuse</p></li>
+<li><p><strong>Library Structure:</strong> Added <code class="docutils literal notranslate"><span class="pre">bluesky_util.client</span></code> module for general BlueSky operations</p></li>
+</ul>
+</section>
+<section id="technical-details">
+<h3>Technical Details<a class="headerlink" href="#technical-details" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code> provides base functionality for user profile operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers</span></code> extends <code class="docutils literal notranslate"><span class="pre">BlueSkyClient</span></code> with follower-specific functionality</p></li>
+<li><p>Backward compatibility maintained - all existing <code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers</span></code> methods work unchanged</p></li>
+<li><p>New import available: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">bluesky_util</span> <span class="pre">import</span> <span class="pre">BlueSkyClient</span></code></p></li>
+</ul>
+</section>
+<section id="migration-from-v2-0-0">
+<h3>Migration from v2.0.0<a class="headerlink" href="#migration-from-v2-0-0" title="Link to this heading"></a></h3>
+<p>No breaking changes. Existing code continues to work as before. Optionally:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># NEW: Use BlueSkyClient for general profile operations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyClient</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">BlueSkyClient</span><span class="p">()</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get_user_profile</span><span class="p">(</span><span class="s2">&quot;user.bsky.social&quot;</span><span class="p">)</span>
+
+<span class="c1"># EXISTING: BlueSkyFollowers still has all the same methods</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+<span class="n">profile</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_user_profile</span><span class="p">(</span><span class="s2">&quot;user.bsky.social&quot;</span><span class="p">)</span>  <span class="c1"># Still works via inheritance</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id2">
+<h2>[2.0.0] - 2024-12-19<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<section id="breaking-changes">
+<h3>⚠️ BREAKING CHANGES<a class="headerlink" href="#breaking-changes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Username Validation:</strong> Removed automatic <code class="docutils literal notranslate"><span class="pre">.bsky.social</span></code> suffix addition. All usernames must now be fully qualified (e.g., <code class="docutils literal notranslate"><span class="pre">jack.bsky.social</span></code> instead of <code class="docutils literal notranslate"><span class="pre">jack</span></code>).</p></li>
+<li><p><strong>API Changes:</strong> Converted from script-based to library-based architecture with class-based interface.</p></li>
+<li><p><strong>CLI Interface:</strong> New command-line interface with different argument structure.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Added<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Library Architecture:</strong> Converted to importable Python library with <code class="docutils literal notranslate"><span class="pre">BlueSkyFollowers</span></code> class</p></li>
+<li><p><strong>Custom Domain Support:</strong> Full support for BlueSky custom domains (e.g., <code class="docutils literal notranslate"><span class="pre">user.custom-domain.com</span></code>)</p></li>
+<li><p><strong>Enhanced CLI:</strong> New <code class="docutils literal notranslate"><span class="pre">cli.py</span></code> with argparse-based interface</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--limit</span></code> flag to control number of results</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-description</span></code> flag to hide descriptions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--version</span></code> flag to show version information</p></li>
+</ul>
+</li>
+<li><p><strong>Comprehensive Documentation:</strong></p>
+<ul>
+<li><p>Sphinx documentation setup with RTD theme</p></li>
+<li><p>Migration guide from v1.0.0 to v2.0.0</p></li>
+<li><p>API reference documentation</p></li>
+<li><p>Comprehensive examples and usage patterns</p></li>
+</ul>
+</li>
+<li><p><strong>Better Error Handling:</strong> Specific exception types with detailed error messages</p></li>
+<li><p><strong>Type Hints:</strong> Full type annotation support throughout the codebase</p></li>
+<li><p><strong>Examples:</strong> Updated examples demonstrating library and CLI usage patterns</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Changed<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Username Validation:</strong> <code class="docutils literal notranslate"><span class="pre">validate_username()</span></code> now requires fully qualified usernames and raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> for invalid formats</p></li>
+<li><p><strong>Project Structure:</strong> Reorganized into proper Python package structure with <code class="docutils literal notranslate"><span class="pre">bluesky_util/</span></code> directory</p></li>
+<li><p><strong>Dependencies:</strong> Updated <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> with proper library configuration and optional dependency groups</p></li>
+<li><p><strong>Version Management:</strong> Semantic versioning with proper Git tagging (v2.0.0, v2.0.0-release)</p></li>
+</ul>
+</section>
+<section id="removed">
+<h3>Removed<a class="headerlink" href="#removed" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Automatic Domain Addition:</strong> No longer automatically appends <code class="docutils literal notranslate"><span class="pre">.bsky.social</span></code> to usernames</p></li>
+<li><p><strong>Direct Script Execution:</strong> Replaced with library import and separate CLI interface</p></li>
+<li><p><strong>Legacy CLI Arguments:</strong> Old positional argument structure replaced with flag-based interface</p></li>
+</ul>
+</section>
+<section id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Domain Flexibility:</strong> Now properly supports any BlueSky domain, not just <code class="docutils literal notranslate"><span class="pre">.bsky.social</span></code></p></li>
+<li><p><strong>Error Messages:</strong> More descriptive error messages for invalid usernames and API failures</p></li>
+<li><p><strong>Code Organization:</strong> Better separation of concerns with modular architecture</p></li>
+</ul>
+</section>
+<section id="id5">
+<h3>Technical Details<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul>
+<li><p><strong>Package Structure:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bluesky_util/
+├── __init__.py      # Library exports and version
+├── followers.py     # BlueSkyFollowers class
+└── utils.py         # Utility functions
+</pre></div>
+</div>
+</li>
+<li><p><strong>API Changes:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># v1.0.0 (OLD)</span>
+<span class="c1"># Direct script execution only</span>
+
+<span class="c1"># v2.0.0 (NEW)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bluesky_util</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlueSkyFollowers</span>
+<span class="n">bf</span> <span class="o">=</span> <span class="n">BlueSkyFollowers</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">bf</span><span class="o">.</span><span class="n">get_followers_data</span><span class="p">(</span><span class="s1">&#39;jack.bsky.social&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>CLI Changes:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># v1.0.0 (OLD)</span>
+python<span class="w"> </span>bluesky_followers.py<span class="w"> </span>jack<span class="w"> </span><span class="m">50</span>
+
+<span class="c1"># v2.0.0 (NEW)  </span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">50</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="migration-notes">
+<h3>Migration Notes<a class="headerlink" href="#migration-notes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Backup Available:</strong> Original v1.0.0 script preserved as <code class="docutils literal notranslate"><span class="pre">bluesky_followers_v1.0.0.py</span></code></p></li>
+<li><p><strong>Breaking Change Impact:</strong> All existing code using the utility must be updated to use fully qualified usernames</p></li>
+<li><p><strong>Migration Guide:</strong> Comprehensive migration documentation available in <code class="docutils literal notranslate"><span class="pre">docs/migration.md</span></code></p></li>
+</ul>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Sphinx Setup:</strong> Professional documentation generation with Read the Docs theme</p></li>
+<li><p><strong>API Reference:</strong> Complete API documentation with examples</p></li>
+<li><p><strong>Migration Guide:</strong> Step-by-step migration instructions from v1.0.0</p></li>
+<li><p><strong>Contributing Guide:</strong> Guidelines for contributors and development setup</p></li>
+<li><p><strong>Examples:</strong> Comprehensive usage examples for both library and CLI interfaces</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id6">
+<h2>[1.0.0] - 2024-12-18<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<section id="id7">
+<h3>Added<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Initial Release:</strong> Basic BlueSky followers retrieval functionality</p></li>
+<li><p><strong>Core Features:</strong></p>
+<ul>
+<li><p>Retrieve followers for any BlueSky user</p></li>
+<li><p>Beautiful tabular display with Rich library</p></li>
+<li><p>Configurable follower limits</p></li>
+<li><p>Basic error handling</p></li>
+</ul>
+</li>
+<li><p><strong>Username Handling:</strong> Automatic <code class="docutils literal notranslate"><span class="pre">.bsky.social</span></code> suffix addition for convenience</p></li>
+<li><p><strong>CLI Interface:</strong> Simple positional arguments (username, limit)</p></li>
+<li><p><strong>Dependencies:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">requests</span></code> for API communication</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rich</span></code> for beautiful terminal output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python-dotenv</span></code> for environment configuration</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="technical-implementation">
+<h3>Technical Implementation<a class="headerlink" href="#technical-implementation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Single Script:</strong> Monolithic <code class="docutils literal notranslate"><span class="pre">bluesky_followers.py</span></code> script</p></li>
+<li><p><strong>Direct Execution:</strong> <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">bluesky_followers.py</span> <span class="pre">username</span> <span class="pre">limit</span></code></p></li>
+<li><p><strong>API Integration:</strong> BlueSky AT Protocol API integration</p></li>
+<li><p><strong>Output Format:</strong> Rich table with follower handle, display name, and description</p></li>
+</ul>
+</section>
+<section id="known-limitations">
+<h3>Known Limitations<a class="headerlink" href="#known-limitations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Domain Limitation:</strong> Only supported <code class="docutils literal notranslate"><span class="pre">.bsky.social</span></code> usernames</p></li>
+<li><p><strong>Script-Only:</strong> No library import capability</p></li>
+<li><p><strong>Basic Error Handling:</strong> Limited error recovery and reporting</p></li>
+<li><p><strong>No Custom Domains:</strong> Couldn’t handle BlueSky custom domains</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="development-notes">
+<h2>Development Notes<a class="headerlink" href="#development-notes" title="Link to this heading"></a></h2>
+<section id="versioning-strategy">
+<h3>Versioning Strategy<a class="headerlink" href="#versioning-strategy" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Major (X.0.0):</strong> Breaking changes, significant architecture changes</p></li>
+<li><p><strong>Minor (x.Y.0):</strong> New features, backward compatible additions</p></li>
+<li><p><strong>Patch (x.y.Z):</strong> Bug fixes, documentation updates, minor improvements</p></li>
+</ul>
+</section>
+<section id="release-channels">
+<h3>Release Channels<a class="headerlink" href="#release-channels" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Stable:</strong> Tagged releases (v2.0.0, v1.0.0)</p></li>
+<li><p><strong>Development:</strong> Main branch with latest changes</p></li>
+<li><p><strong>Feature Branches:</strong> Individual feature development</p></li>
+</ul>
+</section>
+<section id="contribution-guidelines">
+<h3>Contribution Guidelines<a class="headerlink" href="#contribution-guidelines" title="Link to this heading"></a></h3>
+<p>All changes should:</p>
+<ol class="arabic simple">
+<li><p>Follow semantic versioning principles</p></li>
+<li><p>Include appropriate tests when possible</p></li>
+<li><p>Update documentation for user-facing changes</p></li>
+<li><p>Include changelog entries</p></li>
+<li><p>Use conventional commit messages</p></li>
+</ol>
+</section>
+<section id="future-roadmap">
+<h3>Future Roadmap<a class="headerlink" href="#future-roadmap" title="Link to this heading"></a></h3>
+<p>Planned for future releases:</p>
+<ul class="simple">
+<li><p><strong>v2.1.0 (Minor):</strong></p>
+<ul>
+<li><p>Enhanced filtering and sorting options</p></li>
+<li><p>Batch processing for multiple users</p></li>
+<li><p>Export formats (CSV, JSON)</p></li>
+<li><p>Performance optimizations</p></li>
+</ul>
+</li>
+<li><p><strong>v2.2.0 (Minor):</strong></p>
+<ul>
+<li><p>Following/followers relationship analysis</p></li>
+<li><p>User profile information retrieval</p></li>
+<li><p>Rate limiting and retry logic improvements</p></li>
+</ul>
+</li>
+<li><p><strong>v3.0.0 (Major):</strong></p>
+<ul>
+<li><p>AsyncIO support for better performance</p></li>
+<li><p>Plugin architecture for extensibility</p></li>
+<li><p>REST API server mode</p></li>
+<li><p>Advanced analytics and insights</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="support-policy">
+<h3>Support Policy<a class="headerlink" href="#support-policy" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Current Release (2.0.0):</strong> Full support with bug fixes and security updates</p></li>
+<li><p><strong>Previous Release (1.0.0):</strong> Security updates only, deprecated features</p></li>
+<li><p><strong>Pre-1.0.0:</strong> No longer supported</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>For detailed technical information about each release, see the <a class="reference internal" href="api-reference.html"><span class="std std-doc">API Reference</span></a> and <a class="reference internal" href="migration.html"><span class="std std-doc">Migration Guide</span></a>.</em></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="contributing.html" class="btn btn-neutral float-left" title="Contributing to BlueSky Followers Utility" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BlueSky Util Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing to BlueSky Followers Utility &mdash; BlueSky Followers Utility v2.1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=20623aea"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="prev" title="Migration Guide: v1.0.0 to v2.0.0" href="migration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            BlueSky Followers Utility
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EXAMPLES.html">BlueSky Followers Utility - Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migration.html">Migration Guide: v1.0.0 to v2.0.0</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing to BlueSky Followers Utility</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-setup">Development Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initial-setup">Initial Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#making-changes">Making Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-branch">1. Create a Branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types-of-contributions">2. Types of Contributions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-workflow">3. Development Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-testing">Manual Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unit-tests-future">Unit Tests (Future)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#integration-testing">Integration Testing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#building-documentation">Building Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-documentation">Adding Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation-style">Documentation Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submitting-changes">Submitting Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commit-guidelines">1. Commit Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-and-create-pr">2. Push and Create PR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pr-review-process">3. PR Review Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#code-style">Code Style</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-style-guide">Python Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-code-style">Example Code Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Documentation Style</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#release-process">Release Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#version-management">Version Management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-release">Creating a Release</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recognition">Recognition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BlueSky Followers Utility</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Contributing to BlueSky Followers Utility</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/contributing.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="contributing-to-bluesky-followers-utility">
+<h1>Contributing to BlueSky Followers Utility<a class="headerlink" href="#contributing-to-bluesky-followers-utility" title="Link to this heading"></a></h1>
+<p>Thank you for your interest in contributing to the BlueSky Followers Utility! This guide will help you get started.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#development-setup">Development Setup</a></p></li>
+<li><p><a class="reference internal" href="#project-structure">Project Structure</a></p></li>
+<li><p><a class="reference internal" href="#making-changes">Making Changes</a></p></li>
+<li><p><a class="reference internal" href="#testing">Testing</a></p></li>
+<li><p><a class="reference internal" href="#documentation">Documentation</a></p></li>
+<li><p><a class="reference internal" href="#submitting-changes">Submitting Changes</a></p></li>
+<li><p><a class="reference internal" href="#code-style">Code Style</a></p></li>
+<li><p><a class="reference internal" href="#release-process">Release Process</a></p></li>
+</ol>
+</section>
+<section id="development-setup">
+<h2>Development Setup<a class="headerlink" href="#development-setup" title="Link to this heading"></a></h2>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Python 3.9 or higher</p></li>
+<li><p>Git</p></li>
+<li><p>uv (recommended) or pip</p></li>
+</ul>
+</section>
+<section id="initial-setup">
+<h3>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Fork and Clone</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_USERNAME/bluesky-util.git
+<span class="nb">cd</span><span class="w"> </span>bluesky-util
+</pre></div>
+</div>
+</li>
+<li><p><strong>Create Virtual Environment</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using uv (recommended)</span>
+uv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
+
+<span class="c1"># Or using Python venv</span>
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: .venv\Scripts\activate</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Dependencies</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install all dependencies including dev tools</span>
+uv<span class="w"> </span>sync<span class="w"> </span>--extra<span class="w"> </span>dev<span class="w"> </span>--extra<span class="w"> </span>docs
+
+<span class="c1"># Or with pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev,docs]&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Verify Installation</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test library import</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from bluesky_util import BlueSkyFollowers; print(&#39;✓ Library import works&#39;)&quot;</span>
+
+<span class="c1"># Test CLI</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>--version
+
+<span class="c1"># Test docs build</span>
+<span class="nb">cd</span><span class="w"> </span>docs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>.<span class="w"> </span>_build
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>bluesky-util/
+├── bluesky_util/           # Main library package
+│   ├── __init__.py         # Package initialization and exports
+│   ├── followers.py        # BlueSkyFollowers class
+│   └── utils.py            # Utility functions
+├── docs/                   # Sphinx documentation
+│   ├── conf.py             # Sphinx configuration
+│   ├── *.md                # Documentation files
+│   └── _build/             # Built documentation (generated)
+├── examples/               # Usage examples
+│   └── library_usage.py    # Library usage examples
+├── tests/                  # Test files (create as needed)
+├── cli.py                  # Command-line interface
+├── pyproject.toml          # Project configuration
+├── README.md               # Main project readme
+└── MIGRATION_COMPLETE.md   # Migration documentation
+</pre></div>
+</div>
+</section>
+<section id="making-changes">
+<h2>Making Changes<a class="headerlink" href="#making-changes" title="Link to this heading"></a></h2>
+<section id="create-a-branch">
+<h3>1. Create a Branch<a class="headerlink" href="#create-a-branch" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-feature-name
+<span class="c1"># or</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix/issue-description
+</pre></div>
+</div>
+</section>
+<section id="types-of-contributions">
+<h3>2. Types of Contributions<a class="headerlink" href="#types-of-contributions" title="Link to this heading"></a></h3>
+<p><strong>Bug Fixes:</strong></p>
+<ul class="simple">
+<li><p>Fix existing functionality</p></li>
+<li><p>Add tests to prevent regression</p></li>
+<li><p>Update documentation if needed</p></li>
+</ul>
+<p><strong>New Features:</strong></p>
+<ul class="simple">
+<li><p>Add new functionality to the library</p></li>
+<li><p>Include comprehensive tests</p></li>
+<li><p>Update documentation and examples</p></li>
+<li><p>Ensure backward compatibility when possible</p></li>
+</ul>
+<p><strong>Documentation:</strong></p>
+<ul class="simple">
+<li><p>Improve existing docs</p></li>
+<li><p>Add new examples</p></li>
+<li><p>Fix typos or unclear instructions</p></li>
+</ul>
+<p><strong>Performance:</strong></p>
+<ul class="simple">
+<li><p>Optimize existing code</p></li>
+<li><p>Add benchmarks to verify improvements</p></li>
+<li><p>Document performance changes</p></li>
+</ul>
+</section>
+<section id="development-workflow">
+<h3>3. Development Workflow<a class="headerlink" href="#development-workflow" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make your changes</span>
+<span class="c1"># Test your changes</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
+
+<span class="c1"># Run tests (when available)</span>
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/
+
+<span class="c1"># Build documentation</span>
+<span class="nb">cd</span><span class="w"> </span>docs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>.<span class="w"> </span>_build
+
+<span class="c1"># Check your changes</span>
+git<span class="w"> </span>status
+git<span class="w"> </span>diff
+</pre></div>
+</div>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<section id="manual-testing">
+<h3>Manual Testing<a class="headerlink" href="#manual-testing" title="Link to this heading"></a></h3>
+<p>Test core functionality:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test username validation</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">from bluesky_util import validate_username</span>
+<span class="s2">try:</span>
+<span class="s2">    validate_username(&#39;jack&#39;)</span>
+<span class="s2">    print(&#39;❌ Should have failed&#39;)</span>
+<span class="s2">except ValueError:</span>
+<span class="s2">    print(&#39;✓ Validation works&#39;)</span>
+
+<span class="s2">validate_username(&#39;jack.bsky.social&#39;)</span>
+<span class="s2">print(&#39;✓ Valid username accepted&#39;)</span>
+<span class="s2">&quot;</span>
+
+<span class="c1"># Test library usage</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+<span class="s2">from bluesky_util import BlueSkyFollowers</span>
+<span class="s2">bf = BlueSkyFollowers()</span>
+<span class="s2">print(&#39;✓ Library import and instantiation works&#39;)</span>
+<span class="s2">&quot;</span>
+
+<span class="c1"># Test CLI</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>--version
+python<span class="w"> </span>cli.py<span class="w"> </span>jack.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span><span class="w"> </span>--no-description
+</pre></div>
+</div>
+</section>
+<section id="unit-tests-future">
+<h3>Unit Tests (Future)<a class="headerlink" href="#unit-tests-future" title="Link to this heading"></a></h3>
+<p>When adding tests, use pytest:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run all tests</span>
+python<span class="w"> </span>-m<span class="w"> </span>pytest
+
+<span class="c1"># Run specific test file</span>
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>tests/test_followers.py
+
+<span class="c1"># Run with coverage</span>
+python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>--cov<span class="o">=</span>bluesky_util
+</pre></div>
+</div>
+</section>
+<section id="integration-testing">
+<h3>Integration Testing<a class="headerlink" href="#integration-testing" title="Link to this heading"></a></h3>
+<p>Test with real BlueSky API:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test with real account (use a test account)</span>
+python<span class="w"> </span>cli.py<span class="w"> </span>test.bsky.social<span class="w"> </span>--limit<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<section id="building-documentation">
+<h3>Building Documentation<a class="headerlink" href="#building-documentation" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+sphinx-build<span class="w"> </span>-b<span class="w"> </span>html<span class="w"> </span>.<span class="w"> </span>_build
+</pre></div>
+</div>
+</section>
+<section id="adding-documentation">
+<h3>Adding Documentation<a class="headerlink" href="#adding-documentation" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>API Documentation:</strong> Update <code class="docutils literal notranslate"><span class="pre">docs/api-reference.md</span></code></p></li>
+<li><p><strong>Examples:</strong> Add to <code class="docutils literal notranslate"><span class="pre">docs/EXAMPLES.md</span></code></p></li>
+<li><p><strong>Migration Info:</strong> Update <code class="docutils literal notranslate"><span class="pre">docs/migration.md</span></code></p></li>
+</ol>
+</section>
+<section id="documentation-style">
+<h3>Documentation Style<a class="headerlink" href="#documentation-style" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use clear, concise language</p></li>
+<li><p>Include code examples for all features</p></li>
+<li><p>Add screenshots when helpful</p></li>
+<li><p>Keep examples up-to-date with current API</p></li>
+</ul>
+</section>
+</section>
+<section id="submitting-changes">
+<h2>Submitting Changes<a class="headerlink" href="#submitting-changes" title="Link to this heading"></a></h2>
+<section id="commit-guidelines">
+<h3>1. Commit Guidelines<a class="headerlink" href="#commit-guidelines" title="Link to this heading"></a></h3>
+<p>Use conventional commit format:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Features</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add support for custom timeout settings&quot;</span>
+
+<span class="c1"># Bug fixes</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: handle rate limiting correctly&quot;</span>
+
+<span class="c1"># Documentation</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;docs: update migration guide with new examples&quot;</span>
+
+<span class="c1"># Breaking changes</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat!: require fully qualified usernames&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="push-and-create-pr">
+<h3>2. Push and Create PR<a class="headerlink" href="#push-and-create-pr" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+</pre></div>
+</div>
+<p>Then create a Pull Request on GitHub with:</p>
+<ul class="simple">
+<li><p>Clear description of changes</p></li>
+<li><p>Link to any related issues</p></li>
+<li><p>Screenshots if UI changes</p></li>
+<li><p>Testing notes</p></li>
+</ul>
+</section>
+<section id="pr-review-process">
+<h3>3. PR Review Process<a class="headerlink" href="#pr-review-process" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Automated checks will run</p></li>
+<li><p>Maintainer review</p></li>
+<li><p>Address feedback</p></li>
+<li><p>Merge after approval</p></li>
+</ol>
+</section>
+</section>
+<section id="code-style">
+<h2>Code Style<a class="headerlink" href="#code-style" title="Link to this heading"></a></h2>
+<section id="python-style-guide">
+<h3>Python Style Guide<a class="headerlink" href="#python-style-guide" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Follow PEP 8</p></li>
+<li><p>Use type hints where appropriate</p></li>
+<li><p>Write docstrings for all public functions</p></li>
+<li><p>Keep functions focused and small</p></li>
+<li><p>Use meaningful variable names</p></li>
+</ul>
+</section>
+<section id="example-code-style">
+<h3>Example Code Style<a class="headerlink" href="#example-code-style" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_followers_data</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> 
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+    <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Retrieve followers data for a BlueSky user.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        username: Fully qualified BlueSky username (e.g., &#39;user.bsky.social&#39;)</span>
+<span class="sd">        limit: Maximum number of followers to retrieve (default: 100)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary containing success status, followers list, and metadata</span>
+<span class="sd">        </span>
+<span class="sd">    Raises:</span>
+<span class="sd">        ValueError: If username format is invalid</span>
+<span class="sd">        ConnectionError: If API request fails</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">validate_username</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+    <span class="c1"># ... implementation</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>Documentation Style<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Use Markdown format</p></li>
+<li><p>Include code examples</p></li>
+<li><p>Keep line length reasonable</p></li>
+<li><p>Use proper headings hierarchy</p></li>
+</ul>
+</section>
+</section>
+<section id="release-process">
+<h2>Release Process<a class="headerlink" href="#release-process" title="Link to this heading"></a></h2>
+<section id="version-management">
+<h3>Version Management<a class="headerlink" href="#version-management" title="Link to this heading"></a></h3>
+<p>We use semantic versioning (MAJOR.MINOR.PATCH):</p>
+<ul class="simple">
+<li><p><strong>MAJOR:</strong> Breaking changes</p></li>
+<li><p><strong>MINOR:</strong> New features, backward compatible</p></li>
+<li><p><strong>PATCH:</strong> Bug fixes, backward compatible</p></li>
+</ul>
+</section>
+<section id="creating-a-release">
+<h3>Creating a Release<a class="headerlink" href="#creating-a-release" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p><strong>Update Version</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update version in pyproject.toml</span>
+<span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2.1.0&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Update Changelog</strong></p>
+<ul class="simple">
+<li><p>Document all changes</p></li>
+<li><p>Follow Keep a Changelog format</p></li>
+</ul>
+</li>
+<li><p><strong>Create Tag</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v2.1.0<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Release v2.1.0: Add custom timeout support&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v2.1.0
+</pre></div>
+</div>
+</li>
+<li><p><strong>Build and Test</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test build</span>
+python<span class="w"> </span>-m<span class="w"> </span>build
+
+<span class="c1"># Test installation</span>
+pip<span class="w"> </span>install<span class="w"> </span>dist/bluesky_util-2.1.0-py3-none-any.whl
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Questions:</strong> Open a GitHub Discussion</p></li>
+<li><p><strong>Bugs:</strong> Open a GitHub Issue</p></li>
+<li><p><strong>Chat:</strong> Join our community channel (if available)</p></li>
+</ul>
+</section>
+<section id="recognition">
+<h2>Recognition<a class="headerlink" href="#recognition" title="Link to this heading"></a></h2>
+<p>Contributors will be:</p>
+<ul class="simple">
+<li><p>Listed in the project’s contributors section</p></li>
+<li><p>Mentioned in release notes for significant contributions</p></li>
+<li><p>Given appropriate credit in documentation</p></li>
+</ul>
+<p>Thank you for contributing to BlueSky Followers Utility! 🎉</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="migration.html" class="btn btn-neutral float-left" title="Migration Guide: v1.0.0 to v2.0.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BlueSky Util Contributors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
