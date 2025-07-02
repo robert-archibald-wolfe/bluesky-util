@@ -1,6 +1,6 @@
 [project]
 name = "bluesky-util"
-version = "2.1.0"
+version = "0.2.0"
 description = "BlueSky utility library - get follower/following data, analytics, and more"
 readme = "README.md"
 requires-python = ">=3.13"

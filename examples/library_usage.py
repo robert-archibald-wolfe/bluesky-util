@@ -12,7 +12,7 @@ import json
 
 def example_client_usage():
     """Example of using the general BlueSkyClient for profile operations."""
-    print("=== BlueSkyClient Usage Example (v2.1.0) ===")
+    print("=== BlueSkyClient Usage Example (v0.2.0) ===")
     
     # Initialize the general client
     client = BlueSkyClient()

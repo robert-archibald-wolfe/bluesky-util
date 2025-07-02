@@ -7,19 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.1.0] - 2025-05-28
 
-### Added
+### Added (v2.1.0)
 
 - **New `BlueSkyClient` class:** General-purpose client for BlueSky operations
 - **Modular Architecture:** Separated general BlueSky functionality from followers-specific functionality
 - **Enhanced Examples:** Updated library usage examples to showcase new architecture
 
-### Changed
+### Changed (v2.1.0)
 
 - **Code Organization:** Moved `get_user_profile` method from `BlueSkyFollowers` to the new `BlueSkyClient` class
 - **Inheritance:** `BlueSkyFollowers` now inherits from `BlueSkyClient` for better code reuse
 - **Library Structure:** Added `bluesky_util.client` module for general BlueSky operations
 
-### Technical Details
+### Implementation Details
 
 - `BlueSkyClient` provides base functionality for user profile operations
 - `BlueSkyFollowers` extends `BlueSkyClient` with follower-specific functionality
@@ -50,7 +50,7 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
 - **API Changes:** Converted from script-based to library-based architecture with class-based interface.
 - **CLI Interface:** New command-line interface with different argument structure.
 
-### Added
+### Added (v2.0.0)
 
 - **Library Architecture:** Converted to importable Python library with `BlueSkyFollowers` class
 - **Custom Domain Support:** Full support for BlueSky custom domains (e.g., `user.custom-domain.com`)
@@ -58,7 +58,7 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
   - `--limit` flag to control number of results
   - `--no-description` flag to hide descriptions  
   - `--version` flag to show version information
-- **Comprehensive Documentation:** 
+- **Comprehensive Documentation:**
   - Sphinx documentation setup with RTD theme
   - Migration guide from v1.0.0 to v2.0.0
   - API reference documentation
@@ -67,7 +67,7 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
 - **Type Hints:** Full type annotation support throughout the codebase
 - **Examples:** Updated examples demonstrating library and CLI usage patterns
 
-### Changed
+### Changed (v2.0.0)
 
 - **Username Validation:** `validate_username()` now requires fully qualified usernames and raises `ValueError` for invalid formats
 - **Project Structure:** Reorganized into proper Python package structure with `bluesky_util/` directory
@@ -88,14 +88,17 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
 
 ### Technical Details
 
-- **Package Structure:** 
-  ```
+- **Package Structure:**
+
+  ```text
   bluesky_util/
   ├── __init__.py      # Library exports and version
   ├── followers.py     # BlueSkyFollowers class
   └── utils.py         # Utility functions
   ```
+
 - **API Changes:**
+
   ```python
   # v1.0.0 (OLD)
   # Direct script execution only
@@ -105,7 +108,9 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
   bf = BlueSkyFollowers()
   data = bf.get_followers_data('jack.bsky.social', limit=50)
   ```
+
 - **CLI Changes:**
+
   ```bash
   # v1.0.0 (OLD)
   python bluesky_followers.py jack 50
@@ -142,7 +147,7 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
   - Basic error handling
 - **Username Handling:** Automatic `.bsky.social` suffix addition for convenience
 - **CLI Interface:** Simple positional arguments (username, limit)
-- **Dependencies:** 
+- **Dependencies:**
   - `requests` for API communication
   - `rich` for beautiful terminal output
   - `python-dotenv` for environment configuration
@@ -163,6 +168,12 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
 
 ---
 
+## [0.2.0] - 2025-06-30
+
+### Changed
+
+- Reset versioning to 0.2.0 for pre-release development status.
+
 ## Development Notes
 
 ### Versioning Strategy
@@ -180,6 +191,7 @@ profile = bf.get_user_profile("user.bsky.social")  # Still works via inheritance
 ### Contribution Guidelines
 
 All changes should:
+
 1. Follow semantic versioning principles
 2. Include appropriate tests when possible
 3. Update documentation for user-facing changes

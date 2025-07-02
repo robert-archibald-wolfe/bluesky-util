@@ -1,4 +1,4 @@
-# BlueSky Followers Utility v2.0.0
+# BlueSky Followers Utility v0.2.0
 
 A Python library and command-line utility to retrieve and display followers of a BlueSky user with timeline information. Now with library architecture for better reusability and full custom domain support.
 
@@ -104,6 +104,7 @@ python cli.py --version
 ### Output
 
 The utility displays a formatted table with:
+
 - **Handle**: The follower's BlueSky handle
 - **Display Name**: Their chosen display name
 - **Description**: Profile bio (truncated to fit)
@@ -121,7 +122,7 @@ The table title shows the target user's handle and join date.
 
 ### v2.0.0 (Current)
 
-**🎉 Major Release - Library Architecture & Custom Domain Support**
+#### 🎉 Major Release - Library Architecture & Custom Domain Support
 
 - **Breaking Change**: Now requires fully qualified usernames (e.g., `jack.bsky.social` instead of `jack`)
 - **New**: Library architecture - import and use `BlueSkyFollowers` class in your projects

@@ -1,6 +1,6 @@
 # API Reference
 
-This page provides detailed documentation for all classes and methods in the BlueSky Followers Utility v2.1.0.
+This page provides detailed documentation for all classes and methods in the BlueSky Followers Utility v0.2.0.
 
 ## Core Classes
 
@@ -22,7 +22,7 @@ The general-purpose BlueSky client for basic operations.
    :show-inheritance:
 ```
 
-### Constructor
+### Constructor: BlueSkyClient
 
 ```{eval-rst}
 .. automethod:: bluesky_util.BlueSkyClient.__init__

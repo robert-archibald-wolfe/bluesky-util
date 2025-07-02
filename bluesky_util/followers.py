@@ -137,3 +137,28 @@ class BlueSkyFollowers(BlueSkyClient):
         
         self.console.print(table)
         return True
+    
+    def get_user_posts(self, username: str, limit: int = 20) -> list:
+        """
+        Fetch recent posts for a user using the BlueSky API.
+        Returns a list of post dicts (empty if not available).
+        """
+        try:
+            username = validate_username(username)
+            profile = self.get_user_profile(username)
+            if not profile:
+                return []
+            posts_response = self.client.get_author_feed(profile.did, limit=limit)
+            # posts_response.feed is a list of post objects
+            posts = []
+            for post in posts_response.feed:
+                posts.append({
+                    "uri": getattr(post, 'uri', None),
+                    "cid": getattr(post, 'cid', None),
+                    "text": getattr(post, 'record', {}).get('text', None),
+                    "created_at": getattr(post, 'record', {}).get('createdAt', None),
+                })
+            return posts
+        except Exception as e:
+            print(f"[ERROR] Failed to fetch posts for {username}: {e}")
+            return []

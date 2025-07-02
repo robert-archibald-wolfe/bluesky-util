@@ -66,3 +66,4 @@ local_settings.py
 debug_*.py
 *_test.py
 *_backup.py
+secrets.py

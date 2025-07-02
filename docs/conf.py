@@ -15,8 +15,8 @@ sys.path.insert(0, os.path.abspath('..'))
 project = 'BlueSky Followers Utility'
 copyright = '2025, BlueSky Util Contributors'
 author = 'BlueSky Util Contributors'
-release = '2.1.0'
-version = '2.1.0'
+release = '0.2.0'
+version = '0.2.0'
 
 # -- General configuration ---------------------------------------------------
 extensions = [

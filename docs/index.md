@@ -74,3 +74,34 @@ python cli.py jack.bsky.social --limit 50 --no-description
 - {ref}`genindex`
 - {ref}`modindex`
 - {ref}`search`
+
+---
+
+## Project Structure
+
+- `bluesky_util/` — Core library
+- `api_server.py` — FastAPI backend
+- `main.py` — CLI entry point
+- `docs/` — Documentation (Sphinx)
+- `examples/` — Usage examples
+- `tests/` — (planned) Automated tests
+
+## API Reference
+See [API Reference](api-reference.md) for full details on all modules, classes, and functions.
+
+## Usage Examples
+See [EXAMPLES.md](EXAMPLES.md) for code samples and common workflows.
+
+## Contributing
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
+
+## Development & Packaging
+- Use `uv` for dependency management and packaging.
+- See [TODO_PROJECT.md](../TODO_PROJECT.md) for project-wide tasks.
+
+## Changelog
+See [changelog.md](changelog.md) for recent changes.
+
+---
+
+For questions or feedback, open an issue or see the project README.
